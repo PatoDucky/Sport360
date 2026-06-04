@@ -19,8 +19,21 @@
     <input type="password" placeholder="Contraseña">
 
 
-        <a href="index.html" class="boton">Crear</a>
-</div>
+        <a class="boton" onclick="CrearCuenta()">Crear</a>
 
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function CrearCuenta(){
+        Swal.fire({
+  title: 'Cuenta creada!',
+  text: 'Se creó la cuenta satísfactoriamente ',
+  icon: 'success',
+  confirmButtonText: 'Ok'
+}).then((result) => {
+  location.href="index.html";
+});
+    }
+</script>
 </body>
 </html>
