@@ -1,41 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Tienda de Tenis</title>
-
-
- <link rel="stylesheet" href="src/css/crear_cuenta.css">
+    <meta charset="UTF-8">
+    <title>Crear Cuenta</title>
 </head>
 
 <body>
 
 <div class="contenedor">
-
-    <h1>Sport360</h1>
-    <p>Crea tu cuenta</p>
-    <input type="text" placeholder="Email"><br>
-    <input type="text" placeholder="Usuario"><br>
-    <input type="password" placeholder="Contraseña">
-
-
-        <a class="boton" onclick="CrearCuenta()">Crear</a>
+    <input type="text" id="email" placeholder="Email"><br>
+    <input type="text" id="usuario" placeholder="Usuario"><br>
+    <input type="password" id="password" placeholder="Contraseña"><br>
+    <a class="boton" onclick="CrearCuenta()">Crear</a>
 
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
-    function CrearCuenta(){
+
+async function CrearCuenta() {
+
+    const datos = {
+        correo_electronico: document.getElementById("email").value,
+        usuario: document.getElementById("usuario").value,
+        password: document.getElementById("password").value
+    };
+
+    try {
+
+        const respuesta = await fetch(
+            "http://localhost:3000/api/usuarios",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(datos)
+            }
+        );
+
+        const resultado = await respuesta.json();
 
         Swal.fire({
-  title: 'Cuenta creada!',
-  text: 'Se creó la cuenta satísfactoriamente ',
-  icon: 'success',
-  confirmButtonText: 'Ok'
-}).then((result) => {
-  location.href="index.html";
-});
+            title: 'Cuenta creada',
+            text: resultado.mensaje,
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        }).then(() => {
+            location.href = "login.html";
+        });
 
     }
+    catch(error) {
+
+        Swal.fire({
+            title: 'Error',
+            text: 'No fue posible crear la cuenta',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        
+        });
+        console.log(error);
+    }
+}
 </script>
 </body>
 </html>
