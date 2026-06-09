@@ -8,11 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static("public"));
+
 // modelo 
-const Usuario = require("./catalogo/Models/Usuarios");
+const Usuario = require("./catalogo/Models/usuarios");
 
 // Conexión a MongoDB
-mongoose.connect("mongodb://localhost:27017/sport360")
+mongoose.connect("mongodb://localhost:27017/Sport360")
 .then(() => {
     console.log("MongoDB conectado");
 })
@@ -63,3 +65,8 @@ app.post("/api/usuarios", async (req, res) => {
         });
     }
 });
+// Esto faltaba — sin esto el servidor no arranca
+app.listen(3000, () => {
+    console.log("Servidor corriendo en http://localhost:3000");
+});
+ 
