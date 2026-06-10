@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>SportTenis.com</title>
+
+       <link rel="stylesheet" href="src/css/style.css">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    </head>
+
+    <body>
+
+<!-- MENÚ SUPERIOR -->
+        <table width="95%" align="center" cellpadding="10" cellspacing="10" class="menu">
+            <tr>
+                <td width=15% align="center"><img src="Imagenes/Logo1.png" alt="Publicidad"></td>
+                <td align="center"><a href="catalogo/basquetbol.html" class="boton"><i class="fa-solid fa-basketball"></i> Basquetbol</td>
+                <td align="center"><a href="catalogo/futbol.html" class="boton"><i class="fa-solid fa-futbol"></i> Futboll</td>
+                <td align="center"><a href="catalogo/voleyball.html" class="boton"><i class="fa-solid fa-volleyball"></i> Voleyball</td>
+                <td align="center"><a href="catalogo/tenis.html" class="boton"><i class="fa-solid fa-baseball"></i> Tenis</td>
+                <td align="center"><a href="catalogo/Atletismo.html" class="boton"><i class="fa-solid fa-person-running"></i> Atletismo</td>
+                <td align="center"><a href="index.html" class="boton"><i class="fa-regular fa-circle-left"></i> regresar</td>
+                <td align="center"><a href="login.html" class="boton"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sing in</td>
+                
+        </table>
+
+
+<td width="75%" valign="top">
+
+
+
+<table width="100%" border="0">
+    <tr>
+
+        <!-- COLUMNA IZQUIERDA -->
+        <td width="75%" valign="top">
+
+            <!-- PRODUCTO 1 -->
+            <table border="1" width="100%" cellpadding="10">
+
+    <tr>
+
+        <td width="25%" align="center">
+            <img src="Imagenes/Futbol/azul f 1.jpg" width="200">
+        </td>
+
+        <td width="35%">
+            <h2>Tenis Futbol</h2>
+            <p>Marca: SportMax</p>
+            <p>Talla: 26 MX</p>
+            <p>Color: Blanco</p>
+            <h3>$1,299.00 MXN</h3>
+        </td>
+
+        <td width="25%" align="center">
+            <h3>Cantidad: <span id="cantidad1">0</span></h3>
+
+            <button class="boton" onclick="agregar(1)">
+                Añadir
+            </button>
+
+            <br><br>
+
+            <button class="boton" onclick="quitar(1)">
+                Quitar
+            </button>
+        </td>
+
+        <td width="15%" align="center">
+            <button class="boton">
+                <i class="fa-solid fa-credit-card"></i><br>
+                Pagar
+            </button>
+        </td>
+
+    </tr>
+
+            </table>
+
+            <br>
+
+            <!-- PRODUCTO 2 -->
+            <table border="1" width="100%" cellpadding="10">
+                <tr>
+
+        <td width="25%" align="center">
+            <img src="Imagenes/Voleyball/azul clarito v 1.jpg" width="200">
+        </td>
+
+        <td width="35%">
+            <h2>Tenis Voleyball</h2>
+            <p>Marca: SportMax</p>
+            <p>Talla: 26 MX</p>
+            <p>Color: Blanco</p>
+            <h3>$1,299.00 MXN</h3>
+        </td>
+
+        <td width="25%" align="center">
+            <h3>Cantidad: <span id="cantidad2">0</span></h3>
+
+            <button class="boton" onclick="agregar(2)">
+                Añadir
+            </button>
+
+            <br><br>
+
+            <button class="boton" onclick="quitar(2)">
+                Quitar
+            </button>
+        </td>
+
+        <td width="15%" align="center">
+            <button class="boton">
+                <i class="fa-solid fa-credit-card"></i><br>
+                Pagar
+            </button>
+        </td>
+
+    </tr>
+            </table>
+
+            <br>
+
+            <!-- PRODUCTO 3 -->
+            <table border="1" width="100%" cellpadding="10">
+                <tr>
+
+        <td width="25%" align="center">
+            <img src="Imagenes/basquet/azul metal b 1.jpg" width="200">
+        </td>
+
+        <td width="35%">
+            <h2>Tenis Basquet</h2>
+            <p>Marca: SportMax</p>
+            <p>Talla: 26 MX</p>
+            <p>Color: Blanco</p>
+            <h3>$1,299.00 MXN</h3>
+        </td>
+
+        <td width="25%" align="center">
+            <h3>Cantidad: <span id="cantidad3">0</span></h3>
+
+            <button class="boton" onclick="agregar(3)">
+                Añadir
+            </button>
+
+            <br><br>
+
+            <button class="boton" onclick="quitar(3)">
+                Quitar
+            </button>
+        </td>
+
+        <td width="15%" align="center">
+            <button class="boton">
+                <i class="fa-solid fa-credit-card"></i><br>
+                Pagar
+            </button>
+        </td>
+
+    </tr>
+            </table>
+
+        </td>
+
+        <!-- COLUMNA DERECHA -->
+        <td width="25%" valign="top">
+
+            <table border="1" width="100%" cellpadding="10">
+                <tr>
+                    <td align="center">
+                        <h2>Resumen de compra</h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><b>Productos:</b> 3 artículos</td>
+                </tr>
+
+                <tr>
+                    <td><b>Subtotal:</b> $3,897.00 MXN</td>
+                </tr>
+
+                <tr>
+                    <td><b>Envío:</b> $150.00 MXN</td>
+                </tr>
+
+                <tr>
+                    <td><b>IVA:</b> $623.52 MXN</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>Total: $4,670.52 MXN</h3>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="center">
+
+                        <button class="boton">
+                            Actualizar carrito
+                        </button>
+
+                        <br><br>
+
+                        <button class="boton">
+                            Aplicar cupón
+                        </button>
+
+                        <br><br>
+
+                        <button class="boton">
+                            Proceder al pago
+                        </button>
+
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+</table>
+    
+
+</td>
+
+</tr>
+</table>
+
+
+        <script src="https://kit.fontawesome.com/5b4a45466f.js" crossorigin="anonymous"></script>
+        <script>
+// Datos de los productos
+const productos = {
+    1: { nombre: "Tenis Futbol",      precio: 1299 },
+    2: { nombre: "Tenis Voleyball",   precio: 1299 },
+    3: { nombre: "Tenis Basquet",     precio: 1299 }
+};
+
+// Carrito
+const carrito = { 1: 0, 2: 0, 3: 0 };
+
+function agregar(id) {
+    carrito[id]++;
+    document.getElementById("cantidad" + id).textContent = carrito[id];
+    actualizarResumen();
+}
+
+function quitar(id) {
+    if (carrito[id] > 0) {
+        carrito[id]--;
+        document.getElementById("cantidad" + id).textContent = carrito[id];
+        actualizarResumen();
+    }
+}
+
+function actualizarResumen() {
+    let totalProductos = 0;
+    let subtotal = 0;
+
+    for (let id in carrito) {
+        totalProductos += carrito[id];
+        subtotal += carrito[id] * productos[id].precio;
+    }
+
+    const envio  = totalProductos > 0 ? 150 : 0;
+    const iva    = subtotal * 0.16;
+    const total  = subtotal + envio + iva;
+
+    // Actualizar el resumen de compra
+    document.getElementById("res-productos").textContent = totalProductos + " artículos";
+    document.getElementById("res-subtotal").textContent  = "$" + subtotal.toLocaleString("es-MX") + " MXN";
+    document.getElementById("res-envio").textContent     = "$" + envio.toLocaleString("es-MX") + " MXN";
+    document.getElementById("res-iva").textContent       = "$" + iva.toFixed(2) + " MXN";
+    document.getElementById("res-total").textContent     = "Total: $" + total.toFixed(2) + " MXN";
+}
+</script>
+    </body>
+</html>

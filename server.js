@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // modelo 
-const Usuario = require("./catalogo/Models/usuarios");
+const Usuario = require("./catalogo/Models/Usuarios");
 
 // Conexión a MongoDB
-mongoose.connect("mongodb://localhost:27017/Sport360")
+mongoose.connect("mongodb://localhost:27017/sport360")
 .then(() => {
     console.log("MongoDB conectado");
 })

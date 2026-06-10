@@ -17,5 +17,5 @@ const usuarioSchema = new mongoose.Schema({
     }
 });
 
-// ✅ El nombre exportado debe ser "Usuario" con mayúscula
-module.exports = mongoose.model("Usuario", usuarioSchema);
+
+module.exports = mongoose.model("usuario", usuarioSchema);

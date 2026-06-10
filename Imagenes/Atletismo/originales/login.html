@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Sport360</title>
+    <link rel="stylesheet" href="src/css/login.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <h1>Sport360</h1>
+    <p>Inicie sesión</p>
+
+    <input type="text" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Contraseña"><br>
+
+    <a class="boton" onclick="Login()">Entrar</a>
+    <p>¿No tienes cuenta? Crea una <a href="Public/crear_cuenta.html">aquí</a></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+async function Login() {
+    const email    = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        Swal.fire({ title: "Error", text: "Completa todos los campos.", icon: "warning", confirmButtonText: "Ok" });
+        return;
+    }
+
+    try {
+        const respuesta = await fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        if (!respuesta.ok) {
+            const error = await respuesta.json();
+            Swal.fire({ title: "Error", text: error.mensaje, icon: "error", confirmButtonText: "Ok" });
+            return;
+        }
+
+        const resultado = await respuesta.json();
+
+        // ✅ Guardar datos del usuario en localStorage
+        localStorage.setItem("usuarioId",     resultado.usuario.id);
+        localStorage.setItem("usuarioNombre", resultado.usuario.nombre);
+        localStorage.setItem("usuarioEmail",  resultado.usuario.email);
+
+        Swal.fire({
+            title: "¡Bienvenido!",
+            text: "Hola, " + resultado.usuario.nombre,
+            icon: "success",
+            confirmButtonText: "Ok"
+        }).then(() => {
+            location.href = "index.html";
+        });
+
+    } catch (error) {
+        Swal.fire({ title: "Error", text: "No se pudo conectar al servidor.", icon: "error", confirmButtonText: "Ok" });
+        console.log(error);
+    }
+}
+</script>
+</body>
+</html>
