@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // modelo 
-const Usuario = require("./catalogo/Models/Usuarios");
+const Usuario = require("./catalogo/Models/usuarios");
 
 // Conexión a MongoDB
 mongoose.connect("mongodb://localhost:27017/sport360")
