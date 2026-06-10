@@ -8,7 +8,7 @@ mongoose.connect("mongodb://localhost:27017/sport360")
 .catch(err => { console.log(" Error:", err); process.exit(1); });
 
 
-// ========== MODELOS ==========
+// Modelos de tenis
 
 const usuarioSchema = new mongoose.Schema({
     email:    { type: String, required: true, unique: true },
@@ -41,7 +41,7 @@ const Articulo = mongoose.model("Articulo", articuloSchema);
 const Carrito  = mongoose.model("Carrito",  carritoSchema);
 
 
-// ========== DATOS ==========
+// Datos usuarios
 
 const usuarios = [
     { email: "admin@sport360.com",   usuario: "Admin",   password: "admin123"  },
@@ -51,7 +51,7 @@ const usuarios = [
 
 const articulos = [
 
-    // ── FUTBOL ──────────────────────────────────────────
+    // tenis futbol
     { nombre: "Tenis adidas Futbol Hyperfast Club TF",                          precio: 1699,   imagen: "Imagenes/Futbol/rosa f 1.jpg",                    categoria: "Futbol",    marca: "Adidas" },
     { nombre: "Tenis Nike Futbol Phantom 6 Low Academy Erling Haaland TF",      precio: 1899,   imagen: "Imagenes/Futbol/verde f 1.jpg",                   categoria: "Futbol",    marca: "Nike"   },
     { nombre: "Tachones Nike Futbol United Tiempo Maestro Academy MG",          precio: 2299,   imagen: "Imagenes/Futbol/cafes f 1.jpg",                   categoria: "Futbol",    marca: "Nike"   },
@@ -73,7 +73,7 @@ const articulos = [
     { nombre: "Tachones adidas Futbol F50 Club FG",                             precio: 1399,   imagen: "Imagenes/Futbol/azul invertido f 1.jpg",          categoria: "Futbol",    marca: "Adidas" },
     { nombre: "Tachones Puma Futbol ATTACANTO FG Niño",                         precio: 1099,   imagen: "Imagenes/Futbol/naranja manchas negras f 1.jpg",  categoria: "Futbol",    marca: "Puma"   },
 
-    // ── BASQUETBOL ──────────────────────────────────────
+    // tenis basquetbol
     { nombre: "Tenis Onboard Klaxon Hombre",                                    precio: 899,    imagen: "Imagenes/basquet/rojo blanco b 1.jpg",            categoria: "Basquetbol",marca: "Onboard"       },
     { nombre: "Tenis Nike KD18 Kevin Durant Hombre",                            precio: 3029,   imagen: "Imagenes/basquet/blanco azul b 1.jpg",            categoria: "Basquetbol",marca: "Nike"          },
     { nombre: "Tenis adidas Anthony Edwards 2 AE2 Hombre",                     precio: 2319,   imagen: "Imagenes/basquet/rosa negro b 1.jpg",             categoria: "Basquetbol",marca: "Adidas"        },
@@ -95,7 +95,7 @@ const articulos = [
     { nombre: "Tenis Nike Jordan Heir Series 2 Hombre",                         precio: 2799,   imagen: "Imagenes/basquet/blanco b 1.jpg",                 categoria: "Basquetbol",marca: "Nike"          },
     { nombre: "Tenis Nike Book 2 The Phoenix Hombre",                           precio: 3799,   imagen: "Imagenes/basquet/naranja rojo b 1.jpg",           categoria: "Basquetbol",marca: "Nike"          },
 
-    // ── VOLEYBALL ───────────────────────────────────────
+    // tenis voleybol
     { nombre: "Tenis Asics Upcourt 6 GS Azul",                                  precio: 1899,   imagen: "Imagenes/Voleyball/azul clarito v 1.jpg",         categoria: "Voleyball", marca: "Asics" },
     { nombre: "Tenis Voleyball Azul Fuerte",                                    precio: 899,    imagen: "Imagenes/Voleyball/azul fuerte v 1.jpg",          categoria: "Voleyball", marca: "Pirma" },
     { nombre: "Tenis Mizuno Wave Momentum 3 Blanco Azul",                       precio: 3399,   imagen: "Imagenes/Voleyball/blanco azul v 1.jpg",          categoria: "Voleyball", marca: "Mizuno"},
@@ -117,7 +117,7 @@ const articulos = [
     { nombre: "Tenis Mizuno Wave Momentum Elite Verde Amarillo",                precio: 3799,   imagen: "Imagenes/Voleyball/verdes amarillo v 1.jpg",      categoria: "Voleyball", marca: "Mizuno"},
     { nombre: "Tenis Mizuno Wave Momentum 3 Azul Clarito",                      precio: 3399,   imagen: "Imagenes/Voleyball/azul clarito v 1.jpg",         categoria: "Voleyball", marca: "Mizuno"},
 
-    // ── ATLETISMO ───────────────────────────────────────
+    // tenis atletismo
     { nombre: "Nike Dragonfly XC 2 Tenis de atletismo para campo traviesa",     precio: 170,    imagen: "Imagenes/Atletismo/tenis de atletismo.png",       categoria: "Atletismo", marca: "Nike" },
     { nombre: "Nike Zoom Rival Waffle 7 Tenis de carrera en pavimento",         precio: 75,     imagen: "Imagenes/Atletismo/tenis de atletismo.png",       categoria: "Atletismo", marca: "Nike" },
     { nombre: "Tenis Mizuno Wave Momentum 3 Atletismo",                         precio: 3399,   imagen: "Imagenes/Atletismo/tenis atletismo3.jpg",         categoria: "Atletismo", marca: "Mizuno"},
@@ -141,7 +141,7 @@ const articulos = [
 ];
 
 
-// ========== INSERTAR DATOS ==========
+// insertar datos
 async function llenarBaseDeDatos() {
     try {
         // Limpiar colecciones existentes
