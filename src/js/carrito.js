@@ -1,8 +1,10 @@
 function agregarAlCarrito(nombre, precio, imagen) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     
-    // Limpieza agresiva de la ruta: siempre quitamos ../ y aseguramos que empiece en Imagenes/
+    // Limpieza de ruta: eliminamos los puntos y barras innecesarios
     let rutaLimpia = imagen.replace(/\.\.\//g, '');
+    
+    // Forzamos que la ruta siempre inicie desde la carpeta Imagenes/
     if (!rutaLimpia.startsWith('Imagenes/')) {
         rutaLimpia = 'Imagenes/' + rutaLimpia;
     }
@@ -29,21 +31,17 @@ function agregarAlCarrito(nombre, precio, imagen) {
 function mostrarCarrito() {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let tablaBody = document.getElementById('carrito-items');
+    if (!tablaBody) return; // Evita error si no estamos en la página del carrito
+    
     tablaBody.innerHTML = "";
 
     if (carrito.length === 0) {
         tablaBody.innerHTML = `<tr><td colspan="5" align="center"><h3>Tu carrito está vacío.</h3></td></tr>`;
-        actualizarResumen(0, 0);
-        return;
     }
 
     let subtotalGeneral = 0;
-    let totalArticulos = 0;
-
     carrito.forEach((producto, index) => {
         subtotalGeneral += (producto.precio * producto.cantidad);
-        totalArticulos += producto.cantidad;
-
         tablaBody.innerHTML += `
             <tr>
                 <td align="center"><img src="${producto.imagen}" height="80" alt="Imagen"></td>
@@ -59,14 +57,15 @@ function mostrarCarrito() {
             </tr>
         `;
     });
-    actualizarResumen(subtotalGeneral, totalArticulos);
+    actualizarResumen(subtotalGeneral);
 }
 
-function actualizarResumen(subtotal, articulos) {
+function actualizarResumen(subtotal) {
     let iva = subtotal * 0.16;
-    document.getElementById('res-subtotal').innerText = `$${subtotal.toFixed(2)}`;
-    document.getElementById('res-iva').innerText = `$${iva.toFixed(2)}`;
-    document.getElementById('res-total').innerText = `$${(subtotal + iva).toFixed(2)}`;
+    let total = subtotal + iva;
+    if(document.getElementById('res-subtotal')) document.getElementById('res-subtotal').innerText = `$${subtotal.toFixed(2)}`;
+    if(document.getElementById('res-iva')) document.getElementById('res-iva').innerText = `$${iva.toFixed(2)}`;
+    if(document.getElementById('res-total')) document.getElementById('res-total').innerText = `$${total.toFixed(2)}`;
 }
 
 function cambiarCantidad(index, nuevaCantidad) {
