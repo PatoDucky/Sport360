@@ -4,12 +4,14 @@ const cors = require("cors");
 
 const app = express();
 
-// Configuración
+// configuracion del server
 app.use(cors());
 app.use(express.json());
 
-// Modelo
-const Usuario = require("./catalogo/Models/Usuarios");
+app.use(express.static("public"));
+
+// modelo 
+const Usuario = require("./catalogo/Models/usuarios");
 
 // Conexión a MongoDB
 mongoose.connect("mongodb://localhost:27017/sport360")
@@ -20,14 +22,13 @@ mongoose.connect("mongodb://localhost:27017/sport360")
     console.log("Error MongoDB:", err);
 });
 
-// Crear usuario
+// crea al ussuario
 app.post("/api/usuarios", async (req, res) => {
     try {
         // 1. Extraemos los datos usando los nombres EXACTOS que envía el frontend
-        const { correo_electronico, usuario, password } = req.body;
-
+        const { email, usuario, password } = req.body;
         // 2. Validación: Asegurar que no manden campos vacíos
-        if (!correo_electronico || !usuario || !password) {
+        if (!email || !usuario || !password) {
             return res.status(400).json({
                 mensaje: "Todos los campos son obligatorios."
             });
@@ -35,7 +36,7 @@ app.post("/api/usuarios", async (req, res) => {
 
         // 3. Crear el nuevo documento con el modelo de Mongoose
         const nuevoUsuario = new Usuario({
-            correo_electronico: correo_electronico, // Ahora sí coinciden
+            email: email, 
             usuario: usuario,
             password: password
         });
@@ -64,3 +65,8 @@ app.post("/api/usuarios", async (req, res) => {
         });
     }
 });
+// 
+app.listen(3000, () => {
+    console.log("Servidor corriendo en http://localhost:3000");
+});
+ 

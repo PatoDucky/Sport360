@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Cuenta</title>
+     <link rel="stylesheet" href="src/css/crear_cuenta.css">
 </head>
 
 <body>
 
-<div class="contenedor">
+<div class="src/css/contenedor">
+    <h1>Sport360</h1>
+    <p>Crea tu cuenta</p>
     <input type="text" id="email" placeholder="Email"><br>
     <input type="text" id="usuario" placeholder="Usuario"><br>
     <input type="password" id="password" placeholder="Contraseña"><br>
@@ -18,27 +21,27 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-
 async function CrearCuenta() {
 
     const datos = {
-        correo_electronico: document.getElementById("email").value,
+        email: document.getElementById("email").value,
         usuario: document.getElementById("usuario").value,
         password: document.getElementById("password").value
     };
 
     try {
+        const respuesta = await fetch("http://localhost:3000/api/usuarios", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datos)
+        });
 
-        const respuesta = await fetch(
-            "http://localhost:3000/api/usuarios",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(datos)
-            }
-        );
+        // Verificamos que la respuesta sea exitosa
+        if (!respuesta.ok) {
+            throw new Error("Error del servidor: " + respuesta.status);
+        }
 
         const resultado = await respuesta.json();
 
@@ -48,22 +51,20 @@ async function CrearCuenta() {
             icon: 'success',
             confirmButtonText: 'Ok'
         }).then(() => {
-            location.href = "login.html";
+            location.href = "index.html";
         });
 
-    }
-    catch(error) {
-
+    } catch(error) {
         Swal.fire({
             title: 'Error',
             text: 'No fue posible crear la cuenta',
             icon: 'error',
             confirmButtonText: 'Ok'
-        
         });
         console.log(error);
     }
 }
+
 </script>
 </body>
 </html>
