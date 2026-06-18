@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>SportTenis.com</title>
+        <link rel="stylesheet" href="../src/css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    </head>
+    <body>
+
+        <table width="95%" align="center" cellpadding="10" cellspacing="10" class="menu">
+            <tr>
+                <td width="15%" align="center"><img src="../Imagenes/Logo1.png" alt="Logo"></td>
+                <td align="center"><a href="../catalogo/futbol.html" class="boton"> Futbol</a></td>
+                <td align="center"><a href="../catalogo/voleyball.html" class="boton"> Voleyball</a></td>
+                <td align="center"><a href="../catalogo/Atletismo.html" class="boton"> Atletismo</a></td>
+                <td align="center"><a href="../carrito.html" class="boton"><i class="fas fa-shopping-cart"></i> Carrito</a></td>
+                <td align="center"><a href="../index.html" class="boton"> Regresar</a></td>
+                <td align="center"><a href="../login.html" class="boton"> Sign in</a></td>
+            </tr>
+        </table>
+
+    <br>
+    <table width="95%" align="center">
+    <tr>
+        <td width="100%" valign="top">
+            <table width="100%" class="contenedor" cellpadding="15">
+                <h2 align="center">Basquetbol</h2>
+                <tr>
+                    <td width="20%" class="producto">
+                        <img src="../Imagenes/basquet/rojo blanco b 1.jpg" height="200">
+                        <h4>Tenis Onboard Klaxon Hombre</h4>
+                        <h4>$899.00</h4>
+                        <!-- ✅ Botón agregar: nombre, precio, ruta imagen -->
+                        <button class="boton" onclick="agregarAlCarrito('Tenis Onboard Klaxon Hombre', 899, '../Imagenes/basquet/rojo blanco b 1.jpg')">
+                             Agregar al carrito
+                        </button>
+                    </td>
+
+                    <td width="20%" class="producto">
+                        <img src="../Imagenes/basquet/blanco azul b 1.jpg" height="200">
+                        <h4>Tenis Nike KD18 Kevin Durant Hombre</h4>
+                        <h4>$3,029.30</h4>
+                        <button class="boton" onclick="agregarAlCarrito('Tenis Nike KD18 Kevin Durant Hombre', 3029.30, '../Imagenes/basquet/blanco azul b 1.jpg')">
+                            Agregar al carrito
+                        </button>
+                    </td>
+
+                    <td width="20%" class="producto">
+                        <img src="../Imagenes/basquet/rosa negro b 1.jpg" height="200">
+                        <h4>Tenis adidas Anthony Edwards 2 AE2 Hombre</h4>
+                        <h4>$2,319.20</h4>
+                        <button class="boton" onclick="agregarAlCarrito('Tenis adidas Anthony Edwards 2 AE2 Hombre', 2319.20, '../Imagenes/basquet/rosa negro b 1.jpg')">
+                             Agregar al carrito
+                        </button>
+                    </td>
+
+                    <td width="20%" class="producto">
+                        <img src="../Imagenes/basquet/morado plateado b 1.jpg" height="200">
+                        <h4>Tenis Nike LeBron XXIII Hombre</h4>
+                        <h4>$3,759.20</h4>
+                        <button class="boton" onclick="agregarAlCarrito('Tenis Nike LeBron XXIII Hombre', 3759.20, '../Imagenes/basquet/morado plateado b 1.jpg')">
+                             Agregar al carrito
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="20%" class="producto">
+                        <img src="../Imagenes/basquet/negro naranja b 1.jpg" height="200">
+                        <h4>Tenis Nike Giannis Freak 7 Hombre</h4>
+                        <h4>$2,159.20</h4>
+                        <button class="boton" onclick="agregarAlCarrito('Tenis Nike Giannis Freak 7 Hombre', 2159.20, '../Imagenes/basquet/negro naranja b 1.jpg')">
+                             Agregar al carrito
+                        </button>
+                    </td>
+
+                    <td width="20%" class="producto">
+                        <img src="../Imagenes/basquet/plateado b 1.jpg" height="200">
+                        <h4>Tenis adidas Harden Volume 10 Hombre</h4>
+                        <h4>$2,879.20</h4>
+                        <button class="boton" onclick="agregarAlCarrito('Tenis adidas Harden Volume 10 Hombre', 2879.20, '../Imagenes/basquet/plateado b 1.jpg')">
+                             Agregar al carrito
+                        </button>
+                    </td>
+
+                    <td width="20%" class="producto">
+                        <img src="../Imagenes/basquet/verde b 1.jpg" height="200">
+                        <h4>Tenis adidas Harden Volume 9 Hombre</h4>
+                        <h4>$2,719.20</h4>
+                        <button class="boton" onclick="agregarAlCarrito('Tenis adidas Harden Volume 9 Hombre', 2719.20, '../Imagenes/basquet/verde b 1.jpg')">
+                            🛒 Agregar al carrito
+                        </button>
+                    </td>
+
+                    <td width="20%" class="producto">
+                        <img src="../Imagenes/basquet/rosa b 1.jpg" height="200">
+                        <h4>Tenis Nike Jordan Luka 4 Hombre</h4>
+                        <h4>$3,099.00</h4>
+                        <button class="boton" onclick="agregarAlCarrito('Tenis Nike Jordan Luka 4 Hombre', 3099, '../Imagenes/basquet/rosa b 1.jpg')">
+                            🛒 Agregar al carrito
+                        </button>
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+    </table>
+
+    <script src="https://kit.fontawesome.com/5b4a45466f.js" crossorigin="anonymous"></script>
+    <!--  Cargar el JS del carrito -->
+    <script src="../src/js/carrito.js"></script>
+    </body>
+</html>
